@@ -14,14 +14,38 @@ function Counter(props: any){
 }
 
 
-function App() {
+let CommonCounter = (props:any) =>	{
+  const {count, setCount} = props;
   return (
     <div>
-  <Counter />
-  <Counter />
-  <Counter />
-   </div>
-  );
+      <button onClick={()=>setCount(count + 1)}>Add</button>
+      click count: {count} times
+    </div>
+  )
+}
+
+function App() {
+
+  const [count, setCount] = useState(0);
+  return(
+    <div>
+      <CommonCounter count={count} setCount={setCount}/>
+      <CommonCounter count={count} setCount={setCount}/>
+      <CommonCounter count={count} setCount={setCount}/>
+      <Counter />
+    </div>
+
+
+  )
+
+
+  // return (
+  //   <div>
+  // <Counter />
+  // <Counter />
+  // <Counter />
+  //  </div>
+  // );
 }
 
 export default App;
